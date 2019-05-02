@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Tipo de Trader</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Tipo de Trader</h1>
+                    <p>Descubra o tipo de <em>Trader</em> que você é...</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Data de Nascimento</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="day">Dia:</label>
+                            <select class="form-control" id="day">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                                <option>13</option>
+                                <option>14</option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26</option>
+                                <option>27</option>
+                                <option>28</option>
+                                <option>29</option>
+                                <option>30</option>
+                                <option>31</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="month">Mês:</label>
+                            <select class="form-control" id="month">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="calc-trader-type" data-toggle="modal" data-target="#which-trader-type">Que tipo de Trader eu sou?</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" role="dialog" id="which-trader-type" aria-labelledby="which-trader-type" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Você é um(a)...</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p><span id="trader-type"></span>!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            var days = [
+                'da Renda Variável',
+                'da Rentabilidade',
+                'do Loss',
+                'da DARF',
+                'do Ibovespa',
+                'das Commodities',
+                'do Gain',
+                'do Scalping',
+                'da Volatilidade',
+                'da Bolsa',
+                'do Tape Reading',
+                'das Opções',
+                'dos Minicontratos',
+                'da Boleta Fast',
+                'das Médias Móveis',
+                'da Corretagem Zero',
+                'da Conta Demo',
+                'do Fibonacci',
+                'dos FIIs',
+                'do Buy and Hold',
+                'da Abertura',
+                'do Long & Short',
+                'do Swing Trade',
+                'do Circuit Breaker',
+                'da Compra na Mínima',
+                'da Venda na Máxima',
+                'do Índice',
+                'do Dólar',
+                'do Payroll',
+                'do Day Trade',
+                'dos Gráficos'
+            ];
+            var months = [
+                'Mago(a)',
+                'Embaixador(a)',
+                'Guerreiro(a)',
+                'Rei/Rainha',
+                'Mestre',
+                'Chefe',
+                'Bruxo(a)',
+                'Imperador/Imperatriz',
+                'Deus(a)',
+                'Soberano(a)',
+                'Capitã(o)',
+                'Comandante'
+            ];
+            $('#calc-trader-type').click(function () {
+                var s1 = months[$('#month').val() - 1];
+                var s2 = days[$('#day').val() - 1];
+                $('#trader-type').html(s1 + ' ' + s2);
+            });
+        </script>
+    </body>
+</html>
